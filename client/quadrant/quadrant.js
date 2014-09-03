@@ -15,5 +15,11 @@ angular.module('myApp.main.quadrant', ['ui.router'])
   };
   $scope.getThreeDayForecast = function() {
     return WeatherFactory.getThreeDayForecast();
+  };
+  $scope.getSevenDayForecast = function() {
+    return WeatherFactory.getSevenDayForecast();
+  };
+  $scope.getAlmanac = function() {
+    return WeatherFactory.getAlmanac();
   }
 });

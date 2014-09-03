@@ -23,6 +23,14 @@ module.exports = exports = {
     res.send('Yo, from the getThreeDayForecast route!');
   },
 
+  getSevenDayForecast: function(req, res, next) {
+    res.send('Yo, from the getSevenDayForecast route!');
+  },
+
+  getAlmanac: function(req, res, next) {
+    res.send('Yo, from the getAlmanac route!');
+  },
+
   post: function (req, res, next) {
     var note = req.body.note;
     var $promise = Q.nbind(Note.create, Note);

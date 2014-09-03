@@ -20,10 +20,30 @@
       .then(function(response) {
         console.log(response.data);
       })
-    }
+    };
+    var getSevenDayForecast = function() {
+      return $http({
+        method: 'GET',
+        url: '/getSevenDayForecast'
+      })
+      .then(function(response) {
+        console.log(response.data);
+      })
+    };
+    var getAlmanac = function() {
+      return $http({
+        method: 'GET',
+        url: '/getAlmanac'
+      })
+      .then(function(response) {
+        console.log(response.data);
+      })
+    };
     return {
       getTodaysWeather: getTodaysWeather,
-      getThreeDayForecast: getThreeDayForecast
+      getThreeDayForecast: getThreeDayForecast,
+      getSevenDayForecast: getSevenDayForecast,
+      getAlmanac: getAlmanac
     };
   });
 }(angular));
