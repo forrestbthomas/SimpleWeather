@@ -6,14 +6,24 @@
     var getTodaysWeather = function() {
       return $http({
         method: 'GET',
-        url: '/getWeather'
+        url: '/getTodaysWeather'
+      })
+      .then(function(response) {
+        console.log(response.data);
+      })
+    };
+    var getThreeDayForecast = function() {
+      return $http({
+        method: 'GET',
+        url: '/getThreeDayForecast'
       })
       .then(function(response) {
         console.log(response.data);
       })
     }
     return {
-      getTodaysWeather: getTodaysWeather
+      getTodaysWeather: getTodaysWeather,
+      getThreeDayForecast: getThreeDayForecast
     };
   });
 }(angular));

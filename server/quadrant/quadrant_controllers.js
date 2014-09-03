@@ -15,8 +15,12 @@ module.exports = exports = {
       });
   },
 
-  getWeather: function(req, res, next) {
-    res.send('Yo!')
+  getTodaysWeather: function(req, res, next) {
+    res.send('Yo, from the getTodaysWeather route!');
+  },
+
+  getThreeDayForecast: function(req, res, next) {
+    res.send('Yo, from the getThreeDayForecast route!');
   },
 
   post: function (req, res, next) {

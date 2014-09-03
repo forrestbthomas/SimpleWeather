@@ -12,5 +12,8 @@ angular.module('myApp.main.quadrant', ['ui.router'])
 .controller('QuadrantController', function ($scope, WeatherFactory) {
   $scope.getTodaysWeather = function(){
     return WeatherFactory.getTodaysWeather();
+  };
+  $scope.getThreeDayForecast = function() {
+    return WeatherFactory.getThreeDayForecast();
   }
 });
