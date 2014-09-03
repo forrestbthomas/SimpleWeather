@@ -15,6 +15,10 @@ module.exports = exports = {
       });
   },
 
+  getWeather: function(req, res, next) {
+    res.send('Yo!')
+  },
+
   post: function (req, res, next) {
     var note = req.body.note;
     var $promise = Q.nbind(Note.create, Note);

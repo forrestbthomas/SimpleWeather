@@ -3,12 +3,12 @@
   <section>
     <center><input type="text" placeholder="City, State"></center>
     <div class="row">
-      <div class="col-md-6 quadrant">Today</div>
-      <div class="col-md-6 quadrant">Three Day</div>
+      <div class="col-md-6 quadrant" ng-click="getTodaysWeather()">Today</div>
+      <div class="col-md-6 quadrant" ng-click="getThreeDayForecast()">Three Day</div>
     </div>
     <div class="row">
-      <div class="col-md-6 quadrant">Seven Day</div>
-      <div class="col-md-6 quadrant">Alamanc</div>
+      <div class="col-md-6 quadrant" ng-click="getSevenDayForecast()">Seven Day</div>
+      <div class="col-md-6 quadrant" ng-click="getAlmanac()">Alamanc</div>
     </div>
   </section>
 </div>
