@@ -7,7 +7,7 @@ angular.module('myApp.main.quadrant', ['ui.router'])
       url: '/quadrants',
       templateUrl: 'quadrant/quadrant.tpl.html',
       controller: 'QuadrantController'
-    });
+    })
 })
 .controller('QuadrantController', function ($scope, $sce, WeatherFactory) {
   $scope.condition;
