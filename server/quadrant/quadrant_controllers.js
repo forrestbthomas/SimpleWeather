@@ -19,19 +19,25 @@ module.exports = exports = {
   getTodaysWeather: function(req, res, next) {
     WeatherRequest.getWeather('today', function(response) {
       res.send(response);
-    })
+    });
   },
 
   getThreeDayForecast: function(req, res, next) {
-    res.send('Yo, from the getThreeDayForecast route!');
+    WeatherRequest.getWeather('three', function(response) {
+      res.send(response);
+    });
   },
 
   getSevenDayForecast: function(req, res, next) {
-    res.send('Yo, from the getSevenDayForecast route!');
+    WeatherRequest.getWeather('five', function(response) {
+      res.send(response);
+    });
   },
 
   getAlmanac: function(req, res, next) {
-    res.send('Yo, from the getAlmanac route!');
+    WeatherRequest.getAlmanac(function(response) {
+      res.send(response);
+    });
   },
 
   post: function (req, res, next) {

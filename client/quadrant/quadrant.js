@@ -9,9 +9,13 @@ angular.module('myApp.main.quadrant', ['ui.router'])
       controller: 'QuadrantController'
     });
 })
-.controller('QuadrantController', function ($scope, WeatherFactory) {
+.controller('QuadrantController', function ($scope, $sce, WeatherFactory) {
+  $scope.condition;
   $scope.getTodaysWeather = function(){
-    return WeatherFactory.getTodaysWeather();
+    WeatherFactory.getTodaysWeather()
+      .then(function(response) {
+        $scope.condition = response;
+      })
   };
   $scope.getThreeDayForecast = function() {
     return WeatherFactory.getThreeDayForecast();

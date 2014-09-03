@@ -9,7 +9,17 @@
         url: '/getTodaysWeather'
       })
       .then(function(response) {
-        console.log(response.data);
+        var date = response.data.data.weather[0].date;
+        var precipitation = response.data.data.weather[0].precipMM;
+        var maxTemp = response.data.data.weather[0].tempMaxF;
+        var minTemp = response.data.data.weather[0].tempMinF;
+        var windDir = response.data.data.weather[0].winddirection;
+        var windSpeed = response.data.data.weather[0].windspeedMiles;
+        var formattedWeather = ['Date: ' + date, 'Precipitation: ' + precipitation,
+        'High: ' + maxTemp, 'Low: ' + minTemp, 'Wind Direction: ' + windDir,
+        'Wind Speed: ' + windSpeed];
+        console.log(formattedWeather);
+        return formattedWeather;
       })
     };
     var getThreeDayForecast = function() {
