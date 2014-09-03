@@ -1,7 +1,8 @@
 "use strict";
 
 var Note = require('./quadrant_model.js'),
-    Q    = require('q');
+    Q    = require('q'),
+    WeatherRequest = require('../requests/world_weather_request');
 
 module.exports = exports = {
   get: function (req, res, next) {
@@ -16,7 +17,9 @@ module.exports = exports = {
   },
 
   getTodaysWeather: function(req, res, next) {
-    res.send('Yo, from the getTodaysWeather route!');
+    WeatherRequest.getWeather('today', function(response) {
+      res.send(response);
+    })
   },
 
   getThreeDayForecast: function(req, res, next) {
