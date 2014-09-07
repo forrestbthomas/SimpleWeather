@@ -5,7 +5,7 @@ angular.module('myApp.main.almanac', ['ui.router'])
   $stateProvider
     .state('myApp.main.almanac', {
       url: '/almanac',
-      templateUrl: 'almanac/almanac.tpl.html',
+      templateUrl: 'forecasts/almanac/almanac.tpl.html',
       controller: 'AlmanacController'
     })
 })

@@ -5,7 +5,7 @@ angular.module('myApp.main.three', ['ui.router'])
   $stateProvider
     .state('myApp.main.three', {
       url: '/three',
-      templateUrl: 'three/three.tpl.html',
+      templateUrl: 'forecasts/three/three.tpl.html',
       controller: 'ThreeController'
     })
 })

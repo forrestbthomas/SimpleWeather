@@ -9,17 +9,24 @@
         url: '/getTodaysWeather'
       })
       .then(function(response) {
-        var date = response.data.data.weather[0].date;
-        var precipitation = response.data.data.weather[0].precipMM;
-        var maxTemp = response.data.data.weather[0].tempMaxF;
-        var minTemp = response.data.data.weather[0].tempMinF;
-        var windDir = response.data.data.weather[0].winddirection;
-        var windSpeed = response.data.data.weather[0].windspeedMiles;
-        var formattedWeather = ['Date: ' + date, 'Precipitation: ' + precipitation,
-        'High: ' + maxTemp, 'Low: ' + minTemp, 'Wind Direction: ' + windDir,
-        'Wind Speed: ' + windSpeed];
-        console.log(formattedWeather);
-        return formattedWeather;
+        console.log(response)
+        var formatWeather = function(currentOrPrediction) {
+          var precipitation = response.data.data[currentOrPrediction][0].precipMM;
+          var maxTemp = response.data.data[currentOrPrediction][0].tempMaxF || response.data.data[currentOrPrediction][0].temp_F;
+          var minTemp = response.data.data[currentOrPrediction][0].tempMinF || 'Current condition has no min';
+          var windDir = response.data.data[currentOrPrediction][0].winddirection || response.data.data[currentOrPrediction][0].winddir16Point;
+          var windSpeed = response.data.data[currentOrPrediction][0].windspeedMiles;
+          var formattedWeather = ['Precipitation: ' + precipitation,
+          'High: ' + maxTemp, 'Low: ' + minTemp, 'Wind Direction: ' + windDir,
+          'Wind Speed: ' + windSpeed];
+          return formattedWeather;
+        }
+        var currentWeather = formatWeather('current_condition');
+        var predictedWeather = formatWeather('weather');
+        return {
+          currentWeather: currentWeather,
+          predictedWeather: predictedWeather
+        }
       })
     };
     var getThreeDayForecast = function() {

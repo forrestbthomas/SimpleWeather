@@ -5,7 +5,7 @@ angular.module('myApp.main.today', ['ui.router'])
   $stateProvider
     .state('myApp.main.today', {
       url: '/today',
-      templateUrl: 'today/today.tpl.html',
+      templateUrl: 'forecasts/today/today.tpl.html',
       controller: 'TodayController'
     })
 })
@@ -14,7 +14,7 @@ angular.module('myApp.main.today', ['ui.router'])
   var getTodaysWeather = function(){
     WeatherFactory.getTodaysWeather()
       .then(function(response) {
-        $scope.condition = response;
+        console.log(response);
       });
   };
   getTodaysWeather();
