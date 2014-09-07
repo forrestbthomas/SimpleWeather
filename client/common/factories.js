@@ -31,10 +31,10 @@
         console.log(response.data);
       })
     };
-    var getSevenDayForecast = function() {
+    var getFiveDayForecast = function() {
       return $http({
         method: 'GET',
-        url: '/getSevenDayForecast'
+        url: '/getFiveDayForecast'
       })
       .then(function(response) {
         console.log(response.data);
@@ -52,7 +52,7 @@
     return {
       getTodaysWeather: getTodaysWeather,
       getThreeDayForecast: getThreeDayForecast,
-      getSevenDayForecast: getSevenDayForecast,
+      getFiveDayForecast: getFiveDayForecast,
       getAlmanac: getAlmanac
     };
   });

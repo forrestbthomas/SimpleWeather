@@ -28,7 +28,7 @@ module.exports = exports = {
     });
   },
 
-  getSevenDayForecast: function(req, res, next) {
+  getFiveDayForecast: function(req, res, next) {
     WeatherRequest.getWeather('five', function(response) {
       res.send(response);
     });
@@ -38,17 +38,5 @@ module.exports = exports = {
     WeatherRequest.getAlmanac(function(response) {
       res.send(response);
     });
-  },
-
-  post: function (req, res, next) {
-    var note = req.body.note;
-    var $promise = Q.nbind(Note.create, Note);
-    $promise(note)
-      .then(function (id) {
-        res.send(id);
-      })
-      .fail(function (reason) {
-        next(reason);
-      });
   }
 };
