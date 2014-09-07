@@ -10,8 +10,5 @@ angular.module('myApp.main.quadrant', ['ui.router'])
     })
 })
 .controller('QuadrantController', function ($scope, $sce) {
-  $scope.condition;
-  $scope.getAlmanac = function() {
-    return WeatherFactory.getAlmanac();
-  }
+
 });
