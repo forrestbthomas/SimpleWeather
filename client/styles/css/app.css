@@ -1,23 +1,17 @@
 #messages {
   color: #d3d3d3;
 }
-.quadrant {
-  border: 2px solid black;
-  color: white;
-}
 
 body {
   background-image: url('../../lib/img/background.jpg');
 }
 
-.navbar {
-  background-color: #93ADC2;
-}
-
-.links {
-  color: white !important;
-}
-
 .submit {
   margin: 15px;
+}
+
+.forecast {
+  height: 50%;
+  width: 15%;
+  border: 2px solid white;
 }
