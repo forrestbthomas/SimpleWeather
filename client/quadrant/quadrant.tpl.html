@@ -1,7 +1,15 @@
 <div class="container-fluid" ng-controller="QuadrantController">
   <h2>Cities</h2>
   <section>
-    <center><input type="text" placeholder="City, State"></center>
+    <div class="row text-center" style="color:white;">
+      <h4>Search for the weather in your city...</h4>
+    </div>
+    <div class="row">
+      <form>
+        <center><input type="text" ng-model="currentCity"><button class="submit">Submit</button></center>
+        <div class="row text-center" style="color:white;">{{currentCity}}</div>
+      </form>
+    </div>
     <div class="row">
       <div class="col-md-6 quadrant text-center" ui-sref="myApp.main.today">Today</div>
       <div class="col-md-6 quadrant text-center" ui-sref="myApp.main.three">Three Day</div>

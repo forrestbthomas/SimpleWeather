@@ -13,11 +13,8 @@
           var precipitation = response.data.data[currentOrPrediction][0].precipMM;
           var maxTemp = response.data.data[currentOrPrediction][0].tempMaxF || response.data.data[currentOrPrediction][0].temp_F;
           var minTemp = response.data.data[currentOrPrediction][0].tempMinF || 'Current condition has no min';
-          var windDir = response.data.data[currentOrPrediction][0].winddirection || response.data.data[currentOrPrediction][0].winddir16Point;
-          var windSpeed = response.data.data[currentOrPrediction][0].windspeedMiles;
           var formattedWeather = ['Precipitation: ' + precipitation,
-          'High: ' + maxTemp, 'Low: ' + minTemp, 'Wind Direction: ' + windDir,
-          'Wind Speed: ' + windSpeed];
+          'High: ' + maxTemp, 'Low: ' + minTemp];
           return formattedWeather;
         }
         var currentWeather = formatWeather('current_condition');

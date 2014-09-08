@@ -10,5 +10,5 @@ angular.module('myApp.main.quadrant', ['ui.router'])
     })
 })
 .controller('QuadrantController', function ($scope, $sce) {
-
+  $scope.currentCity = 'City, State'
 });

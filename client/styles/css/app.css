@@ -17,3 +17,7 @@ body {
 .links {
   color: white !important;
 }
+
+.submit {
+  margin: 15px;
+}
