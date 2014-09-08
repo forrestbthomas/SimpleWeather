@@ -9,7 +9,6 @@
         url: '/getTodaysWeather'
       })
       .then(function(response) {
-        console.log(response)
         var formatWeather = function(currentOrPrediction) {
           var precipitation = response.data.data[currentOrPrediction][0].precipMM;
           var maxTemp = response.data.data[currentOrPrediction][0].tempMaxF || response.data.data[currentOrPrediction][0].temp_F;
@@ -26,8 +25,8 @@
         return {
           currentWeather: currentWeather,
           predictedWeather: predictedWeather
-        }
-      })
+        };
+      });
     };
     var getThreeDayForecast = function() {
       return $http({

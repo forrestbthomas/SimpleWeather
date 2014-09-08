@@ -11,11 +11,10 @@ angular.module('myApp.main.today', ['ui.router'])
 })
 .controller('TodayController', function ($scope, WeatherFactory) {
   $scope.condition = 'Today\'s Weather is ...';
-  var getTodaysWeather = function(){
+  (function getTodaysWeather(){
     WeatherFactory.getTodaysWeather()
       .then(function(response) {
         console.log(response);
       });
-  };
-  getTodaysWeather();
+  })();
 });
