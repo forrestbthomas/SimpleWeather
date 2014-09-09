@@ -13,5 +13,10 @@ body {
 .forecast {
   height: 50%;
   width: 15%;
-  border: 2px solid white;
+}
+
+.condition {
+  height: 50%;
+  width: 100%;
+  border-radius: 10px;
 }
