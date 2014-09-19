@@ -12,4 +12,5 @@ angular.module('myApp.main.quadrant', ['ui.router'])
 .controller('QuadrantController', function ($scope, $sce) {
   $scope.currentCity = 'San Francisco, CA';
   $scope.condition = 'sunny';
+  $scope.forecasts = ['Today', 'Three-Day', 'Five-Day', 'Almanac']
 });
