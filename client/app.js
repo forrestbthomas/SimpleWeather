@@ -5,7 +5,7 @@
     'ngFx',
     'myApp.main'])
   .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/myApp/main/quadrants');
+    $urlRouterProvider.otherwise('/myApp/main/today');
 
     $stateProvider
       .state('myApp', {

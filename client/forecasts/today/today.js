@@ -9,12 +9,8 @@ angular.module('myApp.main.today', ['ui.router'])
       controller: 'TodayController'
     })
 })
-.controller('TodayController', function ($scope, WeatherFactory) {
-  $scope.condition = 'Today\'s Weather is ...';
-  (function getTodaysWeather(){
-    WeatherFactory.getTodaysWeather()
-      .then(function(response) {
-        console.log(response);
-      });
-  })();
+.controller('TodayController', function ($scope, $sce) {
+  $scope.currentCity = 'San Francisco, CA';
+  $scope.condition = 'sunny';
+  $scope.forecasts = ['Today', 'Three-Day', 'Five-Day', 'Almanac']
 });
