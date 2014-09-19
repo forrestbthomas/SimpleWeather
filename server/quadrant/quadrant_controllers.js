@@ -24,19 +24,22 @@ module.exports = exports = {
   },
 
   getThreeDayForecast: function(req, res, next) {
-    WeatherRequest.getWeather('three', function(response) {
+    var queryString = req.body.city.replace(" ", "%20") || req.body.city;
+    WeatherRequest.getWeather('three', queryString, function(response) {
       res.send(response);
     });
   },
 
   getFiveDayForecast: function(req, res, next) {
-    WeatherRequest.getWeather('five', function(response) {
+    var queryString = req.body.city.replace(" ", "%20") || req.body.city;
+    WeatherRequest.getWeather('five', queryString, function(response) {
       res.send(response);
     });
   },
 
   getAlmanac: function(req, res, next) {
-    WeatherRequest.getAlmanac(function(response) {
+    var queryString = req.body.city.replace(" ", "%20") || req.body.city;
+    WeatherRequest.getAlmanac(queryString, function(response) {
       res.send(response);
     });
   }

@@ -26,28 +26,31 @@
         };
       });
     };
-    var getThreeDayForecast = function() {
+    var getThreeDayForecast = function(city) {
       return $http({
-        method: 'GET',
-        url: '/getThreeDayForecast'
+        method: 'POST',
+        url: '/getThreeDayForecast',
+        data: {city: city}
       })
       .then(function(response) {
         console.log(response.data);
       })
     };
-    var getFiveDayForecast = function() {
+    var getFiveDayForecast = function(city) {
       return $http({
-        method: 'GET',
-        url: '/getFiveDayForecast'
+        method: 'POST',
+        url: '/getFiveDayForecast',
+        data: {city: city}
       })
       .then(function(response) {
         console.log(response.data);
       })
     };
-    var getAlmanac = function() {
+    var getAlmanac = function(city) {
       return $http({
-        method: 'GET',
-        url: '/getAlmanac'
+        method: 'POST',
+        url: '/getAlmanac',
+        data: {city: city}
       })
       .then(function(response) {
         console.log(response.data);

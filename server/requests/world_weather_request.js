@@ -20,9 +20,9 @@ WeatherRequests.getWeather = function(timeFrame, q, next) {
     next(body);
   });
 };
-WeatherRequests.getAlmanac = function(next) {
+WeatherRequests.getAlmanac = function(q, next) {
   var options = {
-      url: 'http://api.wunderground.com/api/' + secrets.Weather_Underground_API_KEY + '/history_20140903/q/CA/Santa_Rosa.json'
+      url: 'http://api.wunderground.com/api/' + secrets.Weather_Underground_API_KEY + '/history_20140903/q/CA/' + q + '.json'
     };
   request(options, function(error, response, body) {
     next(body);
