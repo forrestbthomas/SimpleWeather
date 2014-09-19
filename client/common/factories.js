@@ -3,6 +3,14 @@
 
   angular.module('myApp')
   .factory('WeatherFactory', function ($http) {
+    var formatWeather = function(obj, currentOrPrediction, i) {
+      var precipitation = obj[currentOrPrediction][i || 0].precipMM;
+      var maxTemp = obj[currentOrPrediction][i || 0].tempMaxF || obj[currentOrPrediction][0].temp_F;
+      var minTemp = obj[currentOrPrediction][i || 0].tempMinF || 'Current condition has no min';
+      var formattedWeather = ['Precipitation: ' + precipitation,
+      'High: ' + maxTemp, 'Low: ' + minTemp];
+      return formattedWeather;
+    };
     var getTodaysWeather = function(city) {
       return $http({
         method: 'POST',
@@ -10,16 +18,8 @@
         data: {city: city}
       })
       .then(function(response) {
-        var formatWeather = function(currentOrPrediction) {
-          var precipitation = response.data.data[currentOrPrediction][0].precipMM;
-          var maxTemp = response.data.data[currentOrPrediction][0].tempMaxF || response.data.data[currentOrPrediction][0].temp_F;
-          var minTemp = response.data.data[currentOrPrediction][0].tempMinF || 'Current condition has no min';
-          var formattedWeather = ['Precipitation: ' + precipitation,
-          'High: ' + maxTemp, 'Low: ' + minTemp];
-          return formattedWeather;
-        }
-        var currentWeather = formatWeather('current_condition');
-        var predictedWeather = formatWeather('weather');
+        var currentWeather = formatWeather(response.data.data, 'current_condition');
+        var predictedWeather = formatWeather(response.data.data, 'weather');
         return {
           currentWeather: currentWeather,
           predictedWeather: predictedWeather
@@ -33,7 +33,16 @@
         data: {city: city}
       })
       .then(function(response) {
-        console.log(response.data);
+        var weatherArray = response.data.data.weather;
+        var currentWeather = formatWeather(response.data.data, 'current_condition');
+        var predictedWeather = [];
+        for (var i = 0; i < weatherArray.length; i++) {
+          predictedWeather.push(formatWeather(response.data.data, 'weather', i));
+        }
+        return {
+          currentWeather: currentWeather,
+          predictedWeather: predictedWeather
+        };
       })
     };
     var getFiveDayForecast = function(city) {
@@ -43,7 +52,16 @@
         data: {city: city}
       })
       .then(function(response) {
-        console.log(response.data);
+        var weatherArray = response.data.data.weather;
+        var currentWeather = formatWeather(response.data.data, 'current_condition');
+        var predictedWeather = [];
+        for (var i = 0; i < weatherArray.length; i++) {
+          predictedWeather.push(formatWeather(response.data.data, 'weather', i));
+        }
+        return {
+          currentWeather: currentWeather,
+          predictedWeather: predictedWeather
+        };
       })
     };
     var getAlmanac = function(city) {

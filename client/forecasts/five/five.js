@@ -17,8 +17,9 @@ angular.module('myApp.main.five', ['ui.router'])
   $scope.forecasts = ['Five-Day', 'Today', 'Three-Day', 'Almanac']
   $scope.getWeather = function() {
     var city = $scope.currentCity;
-    WeatherFactory.getTodaysWeather(city)
+    WeatherFactory.getFiveDayForecast(city)
       .then(function(response) {
+        console.log(response);
         $scope.currentConditions = response.currentWeather;
         $scope.forecastedConditions = response.predictedWeather;
       })
