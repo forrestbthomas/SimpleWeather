@@ -9,13 +9,18 @@ angular.module('myApp.main.three', ['ui.router'])
       controller: 'ThreeController'
     })
 })
-.controller('ThreeController', function ($scope, WeatherFactory) {
-  $scope.condition = 'Today\'s Weather is ...';
-  var getThreeDayForecast = function(){
-    WeatherFactory.getThreeDayForecast()
+.controller('ThreeController', function ($scope, $sce, WeatherFactory) {
+  $scope.currentCity = 'San Francisco';
+  $scope.condition = 'sunny';
+  $scope.currentConditions;
+  $scope.forecastedConditions;
+  $scope.forecasts = ['Three-Day', 'Today', 'Five-Day', 'Almanac']
+  $scope.getWeather = function() {
+    var city = $scope.currentCity;
+    WeatherFactory.getTodaysWeather(city)
       .then(function(response) {
-        $scope.condition = response;
-      });
+        $scope.currentConditions = response.currentWeather;
+        $scope.forecastedConditions = response.predictedWeather;
+      })
   };
-  getThreeDayForecast();
 });

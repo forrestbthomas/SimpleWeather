@@ -9,13 +9,18 @@ angular.module('myApp.main.five', ['ui.router'])
       controller: 'FiveController'
     })
 })
-.controller('FiveController', function ($scope, WeatherFactory) {
-  $scope.condition = 'Today\'s Weather is ...';
-  var getFiveDayForecast = function(){
-    WeatherFactory.getFiveDayForecast()
+.controller('FiveController', function ($scope, $sce, WeatherFactory) {
+  $scope.currentCity = 'San Francisco';
+  $scope.condition = 'sunny';
+  $scope.currentConditions;
+  $scope.forecastedConditions;
+  $scope.forecasts = ['Five-Day', 'Today', 'Three-Day', 'Almanac']
+  $scope.getWeather = function() {
+    var city = $scope.currentCity;
+    WeatherFactory.getTodaysWeather(city)
       .then(function(response) {
-        $scope.condition = response;
-      });
+        $scope.currentConditions = response.currentWeather;
+        $scope.forecastedConditions = response.predictedWeather;
+      })
   };
-  getFiveDayForecast();
 });

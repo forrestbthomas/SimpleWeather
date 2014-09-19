@@ -24,7 +24,7 @@
             Current Conditions
           </div>
           <div>
-            <img class="condition" src="../lib/img/{{condition}}.png">
+            <img class="condition" src="../lib/img/sunny.png">
           </div>
           <div ng-repeat="item in currentConditions">
             {{item}}
@@ -35,7 +35,7 @@
             Forecast
           </div>
           <div>
-            <img class="condition" src="../lib/img/{{condition}}.png">
+            <img class="condition" src="../lib/img/sunny.png">
           <div ng-repeat="item in forecastedConditions">
             {{item}}
           </div>
@@ -48,18 +48,18 @@
   <footer>
     <div class="row">
       <div class="col-sm-1 col-sm-offset-2 text-center" style="font-size:200%">
-        <button type="button" class="btn btn-primary" ui-sref="myApp.main.three">
+        <button type="button" class="btn btn-primary" ui-sref="myApp.main.{{forecasts[1].slice(0,forecasts[1].indexOf('-')).toLowerCase()}}">
           {{forecasts[1]}}
         </button>
       </div>
       <div class="col-sm-1 col-sm-offset-2 text-center" style="font-size:200%">
-        <button type="button" class="btn btn-primary" ui-sref="myApp.main.five">
-          {{forecasts[1]}}
+        <button type="button" class="btn btn-primary" ui-sref="myApp.main.{{forecasts[2].slice(0,forecasts[2].indexOf('-')).toLowerCase()}}">
+          {{forecasts[2]}}
         </button>
       </div>
       <div class="col-sm-1 col-sm-offset-2 text-center" style="font-size:200%">
-        <button type="button" class="btn btn-primary" ui-sref="myApp.main.almanac">
-          {{forecasts[1]}}
+        <button type="button" class="btn btn-primary" ui-sref="myApp.main.{{forecasts[3].toLowerCase()}}">
+          {{forecasts[3]}}
         </button>
       </div>
     </div>

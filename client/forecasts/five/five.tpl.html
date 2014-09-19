@@ -1,8 +1,67 @@
 <div class="container-fluid" ng-controller="FiveController">
   <section>
-    <br><br><br><br>
+    <div class="row text-center" style="color:white;">
+      <h4>Search for the weather in your city...</h4>
+    </div>
     <div class="row">
-      <h2>{{ condition }}</h2>
+      <form>
+        <center>
+          <input type="text" ng-model="currentCity">
+          <button class="button" ng-click="getWeather()">
+            Submit
+          </button>
+        </center>
+        <div class="row text-center" style="color:white;">{{currentCity}}</div>
+      </form>
+    </div>
+    <div class="row">
+      <div class="row text-center" style="color:white;font-size:300%">
+        {{forecasts[0]}}
+      </div>
+      <div class="row text-center">
+        <div class="col-sm-1 col-sm-offset-3 forecast">
+          <div class="row text-center" style="color:white;">
+            Current Conditions
+          </div>
+          <div>
+            <img class="condition" src="../lib/img/{{condition}}.png">
+          </div>
+          <div ng-repeat="item in currentConditions">
+            {{item}}
+          </div>
+        </div>
+        <div class="col-sm-1 col-sm-offset-2 forecast">
+          <div class="row text-center" style="color:white;">
+            Forecast
+          </div>
+          <div>
+            <img class="condition" src="../lib/img/{{condition}}.png">
+          <div ng-repeat="item in forecastedConditions">
+            {{item}}
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+  <br>
+  <br>
+  <footer>
+    <div class="row">
+      <div class="col-sm-1 col-sm-offset-2 text-center" style="font-size:200%">
+        <button type="button" class="btn btn-primary" ui-sref="myApp.main.{{forecasts[1].toLowerCase()}}">
+          {{forecasts[1]}}
+        </button>
+      </div>
+      <div class="col-sm-1 col-sm-offset-2 text-center" style="font-size:200%">
+        <button type="button" class="btn btn-primary" ui-sref="myApp.main.{{forecasts[2].slice(0,forecasts[2].indexOf('-')).toLowerCase()}}">
+          {{forecasts[2]}}
+        </button>
+      </div>
+      <div class="col-sm-1 col-sm-offset-2 text-center" style="font-size:200%">
+        <button type="button" class="btn btn-primary" ui-sref="myApp.main.{{forecasts[3].toLowerCase()}}">
+          {{forecasts[3]}}
+        </button>
+      </div>
+    </div>
+  </footer>
 </div>
