@@ -19,7 +19,6 @@ angular.module('myApp.main.five', ['ui.router'])
     var city = $scope.currentCity;
     WeatherFactory.getFiveDayForecast(city)
       .then(function(response) {
-        console.log(response);
         $scope.currentConditions = response.currentWeather;
         $scope.forecastedConditions = response.predictedWeather;
       })

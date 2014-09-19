@@ -71,7 +71,11 @@
         data: {city: city}
       })
       .then(function(response) {
-        console.log(response.data);
+        var yearAgoHighTemp = response.data.history.dailysummary[0].maxtempi;
+        var yearAgoLowTemp = response.data.history.dailysummary[0].mintempi;
+        var yearAgoPrecip = response.data.history.dailysummary[0].precipi;
+        var almanacWeather = ['Precipitation: ' + yearAgoPrecip, 'High: ' + yearAgoHighTemp, 'Low: ' + yearAgoLowTemp];
+        return almanacWeather;
       })
     };
     return {

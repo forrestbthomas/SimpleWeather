@@ -13,14 +13,14 @@ angular.module('myApp.main.almanac', ['ui.router'])
   $scope.currentCity = 'San Francisco';
   $scope.condition = 'sunny';
   $scope.currentConditions;
-  $scope.forecastedConditions;
+  $scope.historicConditions;
   $scope.forecasts = [ 'Almanac', 'Today', 'Three-Day', 'Five-Day']
   $scope.getWeather = function() {
     var city = $scope.currentCity;
-    WeatherFactory.getTodaysWeather(city)
+    WeatherFactory.getAlmanac(city)
       .then(function(response) {
         $scope.currentConditions = response.currentWeather;
-        $scope.forecastedConditions = response.predictedWeather;
+        $scope.historicConditions = response.almanacWeather;
       })
   };
 });

@@ -36,8 +36,12 @@
           </div>
           <div>
             <img class="condition" src="../lib/img/{{condition}}.png">
-          <div ng-repeat="item in forecastedConditions">
-            {{item}}
+          <div class="row" ng-repeat="item in forecastedConditions">
+            <div>{{item[0]}}</div>
+            <div>{{item[1]}}</div>
+            <div>{{item[2]}}</div>
+            <div>{{item[3]}}</div>
+            <div>{{item[4]}}</div>
           </div>
         </div>
       </div>

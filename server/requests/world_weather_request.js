@@ -21,8 +21,18 @@ WeatherRequests.getWeather = function(timeFrame, q, next) {
   });
 };
 WeatherRequests.getAlmanac = function(q, next) {
+  var date = new Date();
+  var year = (date.getFullYear() - 1).toString();
+  var month = date.getMonth() + 1;
+  if (month < 10) {
+    month = '0' + month.toString();
+  } else {
+    month = month.toString();
+  }
+  var day = date.getDate().toString();
+  console.log(year+month+day)
   var options = {
-      url: 'http://api.wunderground.com/api/' + secrets.Weather_Underground_API_KEY + '/history_20140903/q/CA/' + q + '.json'
+      url: 'http://api.wunderground.com/api/' + secrets.Weather_Underground_API_KEY + '/history_' + year + month + day + '/q/CA/' + q + '.json'
     };
   request(options, function(error, response, body) {
     next(body);
