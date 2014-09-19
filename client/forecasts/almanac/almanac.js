@@ -14,13 +14,19 @@ angular.module('myApp.main.almanac', ['ui.router'])
   $scope.condition = 'sunny';
   $scope.currentConditions;
   $scope.historicConditions;
-  $scope.forecasts = [ 'Almanac', 'Today', 'Three-Day', 'Five-Day']
+  $scope.forecasts = [ 'Almanac', 'Today', 'Three-Day', 'Five-Day'];
+  $scope.getCurrent = function() {
+    var city = $scope.currentCity;
+    WeatherFactory.getTodaysWeather(city)
+      .then(function(response) {
+        $scope.currentConditions = response.currentWeather;
+      });
+  }
   $scope.getWeather = function() {
     var city = $scope.currentCity;
     WeatherFactory.getAlmanac(city)
       .then(function(response) {
-        $scope.currentConditions = response.currentWeather;
-        $scope.historicConditions = response.almanacWeather;
+        $scope.historicConditions = response;
       })
   };
 });

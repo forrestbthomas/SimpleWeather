@@ -7,7 +7,7 @@
       <form>
         <center>
           <input type="text" ng-model="currentCity">
-          <button class="button" ng-click="getWeather()">
+          <button class="button" ng-click="getWeather(); getCurrent()">
             Submit
           </button>
         </center>
@@ -32,11 +32,11 @@
         </div>
         <div class="col-sm-1 col-sm-offset-2 forecast">
           <div class="row text-center" style="color:white;">
-            Forecast
+            A Year Ago Today
           </div>
           <div>
             <img class="condition" src="../lib/img/{{condition}}.png">
-          <div ng-repeat="item in forecastedConditions">
+          <div ng-repeat="item in historicConditions">
             {{item}}
           </div>
         </div>
