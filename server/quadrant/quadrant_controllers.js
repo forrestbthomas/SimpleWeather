@@ -17,7 +17,8 @@ module.exports = exports = {
   },
 
   getTodaysWeather: function(req, res, next) {
-    WeatherRequest.getWeather('today', function(response) {
+    var queryString = req.body.city.replace(" ", "%20") || req.body.city;
+    WeatherRequest.getWeather('today', queryString, function(response) {
       res.send(response);
     });
   },

@@ -3,10 +3,11 @@
 
   angular.module('myApp')
   .factory('WeatherFactory', function ($http) {
-    var getTodaysWeather = function() {
+    var getTodaysWeather = function(city) {
       return $http({
-        method: 'GET',
-        url: '/getTodaysWeather'
+        method: 'POST',
+        url: '/getTodaysWeather',
+        data: {city: city}
       })
       .then(function(response) {
         var formatWeather = function(currentOrPrediction) {

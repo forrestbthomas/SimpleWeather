@@ -5,7 +5,7 @@
     </div>
     <div class="row">
       <form>
-        <center><input type="text" ng-model="currentCity"><button class="submit" ng-click="">Submit</button></center>
+        <center><input type="text" ng-model="currentCity"><button class="submit" ng-click="getWeather()">Submit</button></center>
         <div class="row text-center" style="color:white;">{{currentCity}}</div>
       </form>
     </div>
@@ -16,11 +16,17 @@
       <div class="row text-center">
         <div class="col-sm-1 col-sm-offset-2 forecast">
           <div class="row text-center" style="color:white;">Current Conditions</div>
-          <img class="condition" src="../lib/img/{{condition}}.png">
+          <div>
+            <img class="condition" src="../lib/img/{{condition}}.png">
+          </div>
+          <div ng-repeat="item in currentConditions">{{item}}</div>
         </div>
         <div class="col-sm-1 col-sm-offset-4 forecast">
           <div class="row text-center" style="color:white;">Forecast</div>
-          <img class="condition" src="../lib/img/{{condition}}.png">
+          <div>
+            <img class="condition" src="../lib/img/{{condition}}.png">
+          </div>
+          <div ng-repeat="item in forecastedConditions">{{item}}</div>
         </div>
       </div>
     </div>

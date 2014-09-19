@@ -2,10 +2,10 @@ var request = require('request');
 var secrets = require('../../API_KEYS.js');
 
 var WeatherRequests = {};
-WeatherRequests.getWeather = function(timeFrame, next) {
+WeatherRequests.getWeather = function(timeFrame, q, next) {
   if (timeFrame === 'today') {
     var options = {
-      url: 'http://api.worldweatheronline.com/free/v1/weather.ashx?q=95407&format=json&key=' + secrets.World_Weather_API_KEY
+      url: 'http://api.worldweatheronline.com/free/v1/weather.ashx?q=' + q + '&format=json&key=' + secrets.World_Weather_API_KEY
     };
   } else if (timeFrame === 'three') {
     var options = {
